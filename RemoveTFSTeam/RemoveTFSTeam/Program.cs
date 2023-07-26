@@ -8,15 +8,36 @@
     {
         Console.WriteLine($"args.Length == {args.Length}");
 
-        // reflect back the lists fed to this app
-        foreach (var item in args)
+        string s;
+
+        // Is this app being fed data on the PowerShell command line, or is it being redirected data using a PowerShell pipe operator (|)?
+        if (args.Length == 0)
         {
-            // Need to use Console.Read, to process data fed via the "|" command line operator
-            string s;
+            // Data is being redirected using PowerShell pipe operator
             while ((s = Console.ReadLine()) != null)
             {
                 Console.WriteLine(s);
             }
         }
+        else
+        {
+            // Data is coming from the command line as arguments on the command line
+            foreach (var item in args)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
+        // reflect back the lists fed to this app
+        //foreach (var item in args)
+        //{
+        //    // Need to use Console.Read, to process data fed via the "|" command line operator
+        //    string s;
+        //    while ((s = Console.ReadLine()) != null)
+        //    {
+        //        Console.WriteLine(s);
+        //    }
+        //}
     }
 }
