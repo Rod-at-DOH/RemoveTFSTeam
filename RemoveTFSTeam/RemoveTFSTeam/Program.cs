@@ -27,17 +27,5 @@
                 Console.WriteLine(item);
             }
         }
-
-
-        // reflect back the lists fed to this app
-        //foreach (var item in args)
-        //{
-        //    // Need to use Console.Read, to process data fed via the "|" command line operator
-        //    string s;
-        //    while ((s = Console.ReadLine()) != null)
-        //    {
-        //        Console.WriteLine(s);
-        //    }
-        //}
     }
 }
