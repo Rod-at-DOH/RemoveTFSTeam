@@ -15,23 +15,14 @@ namespace RemoveTFSTeam
         {
             foreach (string file in files) 
             {
-                Console.Write($"Processing {file} ");
                 string[] lines = File.ReadAllLines(file);
                 List<string> newLines = new List<string>();
+
+                Console.Write($"Processing {file} ");
+
                 foreach (string line in lines)
                 {
                     bool beginTFSTeamSectionFound = false;
-
-                    // Have we encountered TFS_BEGIN_TEAM_SECTION
-                        // ... and this is not TFS_END_TEAM_SECTION?
-                            // then don't append this to newLines
-                        // ... and this is TFS_END_TEAM_SECTION?
-                            // then still don't append to newLines, but signal that we can resume appending to newLines with next read
-
-                    // Is this TFS_BEGIN_TEAM_SECTION?
-                    // then don't append to newLines and assign beginTFSTeamSectionFound to true
-
-                    // Append to newLines
 
                     if (beginTFSTeamSectionFound)
                     {
@@ -57,6 +48,8 @@ namespace RemoveTFSTeam
                         newLines.Add(line);
                     }
                 }
+
+                Console.WriteLine();    // make sure that we've entered a new line character
             }
         }
     }
