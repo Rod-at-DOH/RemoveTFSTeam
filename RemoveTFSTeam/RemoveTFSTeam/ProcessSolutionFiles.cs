@@ -32,6 +32,30 @@ namespace RemoveTFSTeam
                     // then don't append to newLines and assign beginTFSTeamSectionFound to true
 
                     // Append to newLines
+
+                    if (beginTFSTeamSectionFound)
+                    {
+                        if (!line.Contains(TFS_END_TEAM_SECTION))
+                        {
+                            // don't append to newLines
+                        }
+                        else
+                        {
+                            // This contains TFS_END_TEAM_SECTION and don't append to newLines
+                            beginTFSTeamSectionFound = false;   //resume appending to newLines on the next read
+                            Console.WriteLine("TFS Team Section found");
+                        }
+                    }
+                    else if (line.Contains(TFS_BEGIN_TEAM_SECTION))
+                    {
+                        // stop appending to newLines
+                        beginTFSTeamSectionFound = true;
+                    }
+                    else
+                    {
+                        // append to newLines
+                        newLines.Add(line);
+                    }
                 }
             }
         }

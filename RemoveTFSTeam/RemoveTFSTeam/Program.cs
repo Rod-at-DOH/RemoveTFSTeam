@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using RemoveTFSTeam;
+
+internal class Program
 {
     // This application is meant to be used for removing the section of code:
     // "GlobalSection(TeamFoundationVersionControl)" to "EndGlobalSection"
@@ -28,5 +30,7 @@
                 Console.WriteLine(item);
             }
         }
+
+        ProcessSolutionFiles.ProcessFiles(solutionFiles);
     }
 }
