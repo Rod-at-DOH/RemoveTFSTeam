@@ -15,7 +15,16 @@ namespace RemoveTFSTeam
         {
             bool beginTFSTeamSectionFound = false;
 
-            foreach (string file in files) { }
+            foreach (string file in files) 
+            {
+                Console.Write($"Processing {file}");
+                string[] lines = File.ReadAllLines(file);
+                List<string> newLines = new List<string>();
+                foreach (string line in lines)
+                {
+                    
+                }
+            }
         }
     }
 }
