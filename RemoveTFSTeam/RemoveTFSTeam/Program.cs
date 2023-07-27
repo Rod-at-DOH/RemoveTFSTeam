@@ -6,6 +6,10 @@ internal class Program
     // "GlobalSection(TeamFoundationVersionControl)" to "EndGlobalSection"
     // from the Visual Studio .sln files, which are passed to it on the PowerShell command line.
     // This is a part of the process of migrating TFS/TFVC projects to Git repos.
+    //
+    // Note: I've decided to discontinue work on this project, as it is no longer needed. None of
+    // the .sln files in the TFS project had any TFS related data in them. This application
+    // was meant to remove the TFS data, above, from the .sln files.
     private static void Main(string[] args)
     {
         string s;
