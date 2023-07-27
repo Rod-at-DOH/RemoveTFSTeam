@@ -7,6 +7,7 @@
     private static void Main(string[] args)
     {
         string s;
+        List<string> solutionFiles = new List<string>();
 
         // Is this app being fed data on the PowerShell command line, or is it being redirected data using a PowerShell pipe operator (|)?
         if (args.Length == 0)
@@ -14,12 +15,14 @@
             // Data is being redirected using PowerShell pipe operator
             while ((s = Console.ReadLine()) != null)
             {
-                Console.WriteLine(s);
+                // populate solutionFiles
+                solutionFiles.Add(s);
             }
         }
         else
         {
             // Data is coming from the command line as arguments on the command line
+            // From this point forward I'll be focusing upon the PowerShell pipe operator logic
             foreach (var item in args)
             {
                 Console.WriteLine(item);
