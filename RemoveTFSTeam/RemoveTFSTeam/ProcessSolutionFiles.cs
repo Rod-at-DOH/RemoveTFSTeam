@@ -8,7 +8,7 @@ namespace RemoveTFSTeam
 {
     internal static class ProcessSolutionFiles
     {
-        const string TFS_BEING_TEAM_SECTION = "GlobalSection(TeamFoundationVersionControl)";
+        const string TFS_BEGIN_TEAM_SECTION = "GlobalSection(TeamFoundationVersionControl)";
         const string TFS_END_TEAM_SECTION = "EndGlobalSection";
 
         internal static void ProcessFiles(List<string> files)
@@ -22,14 +22,14 @@ namespace RemoveTFSTeam
                 {
                     bool beginTFSTeamSectionFound = false;
 
-                    // Have we encountered TFS_BEING_TEAM_SECTION
+                    // Have we encountered TFS_BEGIN_TEAM_SECTION
                         // ... and this is not TFS_END_TEAM_SECTION?
                             // then don't append this to newLines
                         // ... and this is TFS_END_TEAM_SECTION?
                             // then still don't append to newLines, but signal that we can resume appending to newLines with next read
 
-                    // Is this TFS_BEING_TEAM_SECTION?
-                    // then don't append to newLines and assign TFS_BEING_TEAM_SECTION to true
+                    // Is this TFS_BEGIN_TEAM_SECTION?
+                    // then don't append to newLines and assign beginTFSTeamSectionFound to true
 
                     // Append to newLines
                 }
